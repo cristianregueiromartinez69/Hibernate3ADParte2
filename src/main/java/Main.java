@@ -33,6 +33,10 @@ public class Main {
         ef.writeXmlFilePokedex(pokedexList, "pokedex.xml");
         ef.writeXmlFileAdestrador(adestradorList, "adestrador.xml");
 
+        crud.deleteDataTables("DELETE FROM Pokedex");
+        crud.deleteDataTables("DELETE FROM Adestrador");
+
+
 
 
 

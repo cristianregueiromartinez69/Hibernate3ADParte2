@@ -10,8 +10,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Clase para la escritura de datos en archivos XML.
+ * @author cristian
+ * @version 1.0
+ */
 public class EscrituraFicheros {
 
+    /**
+     * Escribe una lista de objetos Pokedex en un archivo XML.
+     *
+     * @param pokedexList Lista de objetos {@link Pokedex} a escribir en el archivo.
+     * @param path        Ruta del archivo XML donde se guardarán los datos.
+     */
     public void writeXmlFilePokedex(List<Pokedex>pokedexList, String path){
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
 
@@ -55,6 +66,12 @@ public class EscrituraFicheros {
         }
     }
 
+    /**
+     * Escribe una lista de objetos Adestrador en un archivo XML.
+     *
+     * @param adestradorList Lista de objetos {@link Adestrador} a escribir en el archivo.
+     * @param path           Ruta del archivo XML donde se guardarán los datos.
+     */
     public void writeXmlFileAdestrador(List<Adestrador>adestradorList, String path){
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
 

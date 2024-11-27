@@ -11,8 +11,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Clase que proporciona operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para las entidades
+ * {@link Pokedex} y {@link Adestrador} en una base de datos utilizando JPA.
+ * @author cristian
+ * @version 1.0
+ */
 public class Crud {
 
+    /**
+     * Inserta una lista de 10 objetos de tipo {@link Pokedex} en la base de datos.
+     *
+     * @param pokedexList Lista de objetos {@link Pokedex} a insertar.
+     */
     public void insertar10Pokemons(List<Pokedex> pokedexList){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -31,6 +42,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Inserta una lista de 2 objetos de tipo {@link Adestrador} en la base de datos.
+     *
+     * @param adestradorList Lista de objetos {@link Adestrador} a insertar.
+     */
     public void insertar2Adestradores(List<Adestrador> adestradorList){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -47,6 +63,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Obtiene todos los registros de la entidad {@link Pokedex} desde la base de datos.
+     *
+     * @return Lista de objetos {@link Pokedex}.
+     */
     public List<Pokedex> readPokemonsFromPokedex(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -62,6 +83,11 @@ public class Crud {
         return pokedexList;
     }
 
+    /**
+     * Obtiene todos los registros de la entidad {@link Adestrador} desde la base de datos.
+     *
+     * @return Lista de objetos {@link Adestrador}.
+     */
     public List<Adestrador> readPokemonsFromAdestrador(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -80,6 +106,13 @@ public class Crud {
         return adestradorList;
     }
 
+    /**
+     * Actualiza un registro de la entidad {@link Adestrador} con nuevos valores.
+     *
+     * @param id           ID del adestrador a actualizar.
+     * @param newNome      Nuevo nombre del adestrador.
+     * @param newNacemento Nueva fecha de nacimiento del adestrador.
+     */
     public void update2Adestradores(int id, String newNome, LocalDate newNacemento){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -102,6 +135,14 @@ public class Crud {
         }
     }
 
+    /**
+     * Actualiza un registro de la entidad {@link Pokedex} con nuevos valores.
+     *
+     * @param id           ID del registro a actualizar.
+     * @param newNome      Nuevo nombre del Pokémon.
+     * @param newPeso      Nuevo peso del Pokémon.
+     * @param miscelanea   Nueva información adicional del Pokémon.
+     */
     public void update2Pokedex(int id, String newNome, BigDecimal newPeso, String miscelanea){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -125,6 +166,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Elimina datos de las tablas utilizando una consulta nativa.
+     *
+     * @param query Consulta SQL nativa para eliminar registros.
+     */
     public void deleteDataTables(String query){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();

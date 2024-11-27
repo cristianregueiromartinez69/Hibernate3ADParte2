@@ -6,8 +6,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que contiene métodos para gestionar listas de objetos {@link Pokedex}.
+ * @author cristian
+ * @version 1.0
+ */
 public class MetodosPokedex {
 
+    /**
+     * Genera una lista de objetos {@link Pokedex} con datos predefinidos.
+     *
+     * @return Lista de objetos {@link Pokedex}.
+     */
     public List<Pokedex> getPokemonsList() {
         List<Pokedex> pokemons = new ArrayList<>();
         Pokedex pokedex1 = new Pokedex("pikachu", BigDecimal.valueOf(6.0), "rata hepatítica");
@@ -35,6 +45,11 @@ public class MetodosPokedex {
         return pokemons;
     }
 
+    /**
+     * Imprime en la consola los objetos de una lista de {@link Pokedex}.
+     *
+     * @param pokemons Lista de objetos {@link Pokedex} a mostrar.
+     */
     public void readListPokedex(List<Pokedex> pokemons) {
         for(Pokedex pokedex : pokemons) {
             System.out.println(pokedex);

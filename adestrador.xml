@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<adestradores>
+<adestrador>
+<id>1</id>
+<nome>liko</nome>
+<nacemento>2022-04-10</nacemento>
+</adestrador>
+
+<adestrador>
+<id>2</id>
+<nome>polo</nome>
+<nacemento>2010-09-25</nacemento>
+</adestrador>
+</adestradores>

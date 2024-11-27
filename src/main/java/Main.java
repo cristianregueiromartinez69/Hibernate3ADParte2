@@ -1,6 +1,7 @@
 import model.Adestrador;
 import model.Pokedex;
 import service.Crud;
+import service.EscrituraFicheros;
 import service.MetodosAdestrador;
 import service.MetodosPokedex;
 
@@ -14,6 +15,7 @@ public class Main {
         MetodosPokedex metodosPokedex = new MetodosPokedex();
         MetodosAdestrador metodosAdestrador = new MetodosAdestrador();
         Crud crud = new Crud();
+        EscrituraFicheros ef = new EscrituraFicheros();
         //crud.insertar10Pokemons(metodosPokedex.getPokemonsList());
         //crud.insertar2Adestradores(metodosAdestrador.getAdestradoresList());
         List<Pokedex> pokedexList =  crud.readPokemonsFromPokedex();
@@ -28,7 +30,8 @@ public class Main {
         crud.update2Pokedex(1, "nidoking", BigDecimal.valueOf(62.0), "cornudo");
         crud.update2Pokedex(2, "vaporeon", BigDecimal.valueOf(29.0), "sireno");
 
-
+        ef.writeXmlFilePokedex(pokedexList, "pokedex.xml");
+        ef.writeXmlFileAdestrador(adestradorList, "adestrador.xml");
 
 
 

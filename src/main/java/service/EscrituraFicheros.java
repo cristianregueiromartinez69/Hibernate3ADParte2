@@ -23,8 +23,11 @@ public class EscrituraFicheros {
 
             for(int i = 0; i < pokedexList.size(); i++){
                 xmlStreamWriter.writeCharacters("\n");
+                xmlStreamWriter.writeStartElement("pokemon");
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("id");
                 xmlStreamWriter.writeCharacters(String.valueOf(pokedexList.get(i).getId()));
+                xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("nome");
                 xmlStreamWriter.writeCharacters(pokedexList.get(i).getNome());
@@ -59,12 +62,15 @@ public class EscrituraFicheros {
             XMLStreamWriter xmlStreamWriter = xmlOutputFactory.createXMLStreamWriter(new FileWriter(path));
             xmlStreamWriter.writeStartDocument();
             xmlStreamWriter.writeCharacters("\n");
-            xmlStreamWriter.writeStartElement("adestrador");
+            xmlStreamWriter.writeStartElement("adestradores");
 
             for(int i = 0; i < adestradorList.size(); i++){
                 xmlStreamWriter.writeCharacters("\n");
+                xmlStreamWriter.writeStartElement("adestrador");
+                xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("id");
                 xmlStreamWriter.writeCharacters(String.valueOf(adestradorList.get(i).getId()));
+                xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("nome");
                 xmlStreamWriter.writeCharacters(adestradorList.get(i).getNome());

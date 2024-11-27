@@ -35,5 +35,11 @@ public class MetodosPokedex {
         return pokemons;
     }
 
+    public void readListPokedex(List<Pokedex> pokemons) {
+        for(Pokedex pokedex : pokemons) {
+            System.out.println(pokedex);
+        }
+    }
+
 
 }

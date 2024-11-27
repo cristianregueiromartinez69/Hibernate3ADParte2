@@ -21,4 +21,11 @@ public class MetodosAdestrador {
 
         return adestradores;
     }
+
+    public void readListAdestrador(List<Adestrador> adestradores){
+        for(Adestrador ad : adestradores){
+            System.out.println(ad);
+        }
+    }
+
 }

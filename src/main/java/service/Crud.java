@@ -7,6 +7,7 @@ import jakarta.persistence.Persistence;
 import model.Adestrador;
 import model.Pokedex;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class Crud {
         }
     }
 
-    public void readPokemonsFromPokedex(){
+    public List<Pokedex> readPokemonsFromPokedex(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -54,17 +55,14 @@ public class Crud {
         try(managerFactory; em){
             tx.begin();
             pokedexList = em.createQuery("SELECT p FROM Pokedex p", Pokedex.class).getResultList();
-
-            for(Pokedex pokedex : pokedexList){
-                System.out.println(pokedex);
-            }
             tx.commit();
         }finally{
             if(tx.isActive()) tx.rollback();
         }
+        return pokedexList;
     }
 
-    public void readPokemonsFromAdestrador(){
+    public List<Adestrador> readPokemonsFromAdestrador(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -75,14 +73,11 @@ public class Crud {
 
             adestradorList = em.createQuery("SELECT p FROM Adestrador p", Adestrador.class).getResultList();
 
-            for(Adestrador adestrador : adestradorList){
-                System.out.println(adestrador);
-            }
-
             tx.commit();
 
             if(tx.isActive()) tx.rollback();
         }
+        return adestradorList;
     }
 
     public void update2Adestradores(int id, String newNome, LocalDate newNacemento){
@@ -106,5 +101,31 @@ public class Crud {
 
         }
     }
+
+    public void update2Pokedex(int id, String newNome, BigDecimal newPeso, String miscelanea){
+        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = managerFactory.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try(managerFactory; em){
+            tx.begin();
+
+            Pokedex pokedex = em.find(Pokedex.class, id);
+
+            if(pokedex != null){
+                pokedex.setNome(newNome);
+                pokedex.setPeso(newPeso);
+                pokedex.setMisc(miscelanea);
+            }
+            System.out.println("pokemon de la pokedex actualizado correctamente");
+            tx.commit();
+
+            if(tx.isActive()) tx.rollback();
+
+        }
+    }
+
+
+
 
 }

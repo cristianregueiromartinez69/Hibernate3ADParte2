@@ -20,6 +20,14 @@ public class Adestrador {
     @Column(name = "nacemento")
     private LocalDate nacemento;
 
+    public Adestrador(String nome, LocalDate nacemento) {
+        this.nome = nome;
+        this.nacemento = nacemento;
+    }
+
+    public Adestrador() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -44,4 +52,11 @@ public class Adestrador {
         this.nacemento = nacemento;
     }
 
+    @Override
+    public String toString() {
+        return "Adestrador: " +
+                "\nid: " + id +
+                "\nnome: " + nome +
+                "\nnacemento: " + nacemento;
+    }
 }

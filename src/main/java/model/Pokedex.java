@@ -23,6 +23,15 @@ public class Pokedex {
     @Column(name = "misc", length = Integer.MAX_VALUE)
     private String misc;
 
+    public Pokedex(String nome, BigDecimal peso, String misc) {
+        this.nome = nome;
+        this.peso = peso;
+        this.misc = misc;
+    }
+
+    public Pokedex() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -55,4 +64,12 @@ public class Pokedex {
         this.misc = misc;
     }
 
+    @Override
+    public String toString() {
+        return "Pokedex: " +
+                "\nid: " + id +
+                "\nnome: " + nome+
+                "\npeso: " + peso +
+                "\nmisc: " + misc;
+    }
 }
